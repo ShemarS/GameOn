@@ -14,8 +14,16 @@ interface GameService {
     //"https://api.rawg.io/api/"
 
     @GET("games")
-    fun gameSearch(
+    fun gameLoad(
         //@Query("search") searchTerm: String,
         @Query("key") APIkey: String) : Call<GameData>
 
+
+    @GET("games")
+    fun gameSearch(
+        @Query("key") APIkey: String,
+        @Query("search") searchTerm: String,
+        @Query("metacritic") searchRange: String,
+        @Query("search_exact") searchPrecise: Boolean,
+        @Query("exclude_additions") excludeAdditions: Boolean): Call<GameData>
 }
