@@ -11,6 +11,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,12 +25,20 @@ class MainActivity : AppCompatActivity() {
     private val TAG = "MAN WHAT"
     private val API_KEY = "5010f16954ea41dbbbd5dcbcf63fe830"
     private val REQUEST_CODE = 123
+    private lateinit var firestoreDB: FirebaseFirestore
+    val auth = FirebaseAuth.getInstance()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        openDashboard()
 
+    }
+
+
+    fun openDashboard(){
         // Define an array to store a list of users
         val gameList = ArrayList<Results>()
 
@@ -81,11 +91,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
-
-
-
-
     }
 
     fun openSecondActivity(){
@@ -100,8 +105,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.Search) {
-            openSecondActivity()
+        when (item.itemId) {
+            R.id.Search -> {
+                openSecondActivity()
+            }
+            R.id.SignOut -> {
+                FirebaseAuth.getInstance().signOut()
+                finish()
+            }
+            R.id.MyFavorites -> {
+                TODO("Add favorites page!")
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -109,21 +123,12 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?){
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE){
-            // extract the data from the intent
             val searchTerm = data?.getStringExtra("Search")
             if (searchTerm != null){
-                // Define an array to store a list of users
                 val gameList = ArrayList<Results>()
-
-                // specify a viewAdapter for the dataset
                 val adapter = GamesAdapter(gameList)
-
-                // Store the the recyclerView widget in a variable
                 val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-
                 recyclerView.adapter = adapter
-
-                // use a linear layout manager
                 recyclerView.layoutManager = LinearLayoutManager(this)
 
                 val retrofit = Retrofit.Builder()
@@ -132,10 +137,6 @@ class MainActivity : AppCompatActivity() {
                     .build()
 
                 val GamesAPI = retrofit.create(GameService::class.java)
-
-                // Using enqueue method allows to make asynchronous call without blocking/freezing main thread
-                // randomUserAPI.getUserInfo("us").enqueue  // this end point gets one user only
-                // getMultipleUserInfoWithNationality end point gets multiple user info with nationality as parameters
                 GamesAPI.gameSearch("$API_KEY", searchTerm,"20,100", true, true).enqueue(object : Callback<GameData> {
 
                     override fun onFailure(call: Call<GameData>, t: Throwable) {
@@ -152,21 +153,14 @@ class MainActivity : AppCompatActivity() {
                             return
                         }
 
-                        // The following log messages are just for testing purpose
-                        Log.d(TAG, ": ${body.results.get(0).name}")
-                        Log.d(TAG, ": ${body.results.get(0).metacritic}")
-                        Log.d(TAG, ": ${body.results.get(0).released}")
 
-
-                        // Update the adapter with the new data
                         gameList.addAll(body.results)
                         adapter.notifyDataSetChanged()
                     }
 
                 })
+
             }
-            Log.w(TAG, "Valid response was not received OOF")
         }
     }
-
 }

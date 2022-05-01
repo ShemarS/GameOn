@@ -11,6 +11,8 @@ import com.bumptech.glide.Glide
 
 class GamesAdapter(private val results: ArrayList<Results>) : RecyclerView.Adapter<GamesAdapter.MyViewHolder>() {
 
+    private val TAG = "MAN WHAT"
+
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder.
@@ -34,6 +36,9 @@ class GamesAdapter(private val results: ArrayList<Results>) : RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+
+
+
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         val currentItem = results[position]

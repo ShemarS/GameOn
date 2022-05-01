@@ -7,12 +7,12 @@
         android:title="Search"
         app:showAsAction="never" />
 
-    <item android:id="@+id/Favorites"
+    <item android:id="@+id/MyFavorites"
         android:title="My Favorites"
         app:showAsAction="never" />
 
-    <item android:id="@+id/Account"
-        android:title="My Account"
+    <item android:id="@+id/SignOut"
+        android:title="Sign Out"
         app:showAsAction="never" />
 
 </menu>

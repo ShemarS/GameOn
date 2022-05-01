@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "86809802049",
+    "project_id": "gameon-23568",
+    "storage_bucket": "gameon-23568.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86809802049:android:ce9c2337eb567766b51dc0",
+        "android_client_info": {
+          "package_name": "com.example.gameon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86809802049-lr4e25a3uumpjkhooe74onjv4qfk7dkq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gameon",
+            "certificate_hash": "a61888bf2120d88d63fc6a85cbce0c019c65fdbe"
+          }
+        },
+        {
+          "client_id": "86809802049-7r0et3jbb386aqgi7etj11p979sv0ojk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK_g_R9c1cUX9M-M3iwppKPNiqJt-U7-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86809802049-7r0et3jbb386aqgi7etj11p979sv0ojk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
