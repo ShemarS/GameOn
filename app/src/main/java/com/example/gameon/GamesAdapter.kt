@@ -1,17 +1,25 @@
 package com.example.gameon
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.row_item.view.*
 
 
 class GamesAdapter(private val results: ArrayList<Results>) : RecyclerView.Adapter<GamesAdapter.MyViewHolder>() {
 
     private val TAG = "MAN WHAT"
+
+     var title = ""
+
+
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -26,6 +34,24 @@ class GamesAdapter(private val results: ArrayList<Results>) : RecyclerView.Adapt
         val profileImage = itemView.findViewById<ImageView>(R.id.imageView)
 
 
+
+        init {
+            itemView.setOnClickListener {
+
+                val selectedItem = adapterPosition
+                title = itemView.textViewName.text.toString()
+
+                val myIntent = Intent(itemView.context, GameProfile::class.java)
+                myIntent.putExtra("title", title)
+
+                itemView.context.startActivity(Intent(itemView.context, GameProfile::class.java))
+
+               // viewModel.setInfo(title, metacritic)
+                Toast.makeText(itemView.context, "You clicked on $selectedItem heres the name? : ${itemView.textViewName.text}",
+                    Toast.LENGTH_SHORT).show()
+
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

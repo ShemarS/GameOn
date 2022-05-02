@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.row_item.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,9 +36,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         openDashboard()
-
     }
 
+    fun isChecked(view: View) {
+
+        val gameName = textViewName.text
+        val metaCritic = textViewMetaCritic.text
+
+
+        Toast.makeText(this, "$gameName", Toast.LENGTH_SHORT ).show()
+
+
+
+    }
 
     fun openDashboard(){
         // Define an array to store a list of users
@@ -93,8 +105,8 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+
     fun openSecondActivity(){
-        Toast.makeText(this, "Item 1 clicked", Toast.LENGTH_SHORT ).show()
         val myIntent = Intent(this, SearchActivity::class.java)
         startActivityForResult(myIntent, REQUEST_CODE)
     }
