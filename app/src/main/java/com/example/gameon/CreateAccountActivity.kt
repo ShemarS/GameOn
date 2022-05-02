@@ -26,6 +26,7 @@ class CreateAccountActivity : AppCompatActivity() {
         }
         textViewExistingUser.setOnClickListener() {
             goLogin()
+            finish()
         }
 
         buttonLogin.setOnClickListener{
@@ -60,6 +61,7 @@ class CreateAccountActivity : AppCompatActivity() {
     private fun goLogin() {
         val myIntent = Intent(this, LoginActivity::class.java)
         startActivity(myIntent)
+        finish()
     }
 
 }

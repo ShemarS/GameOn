@@ -34,21 +34,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         openDashboard()
     }
 
-    fun isChecked(view: View) {
-
-        val gameName = textViewName.text
-        val metaCritic = textViewMetaCritic.text
-
-
-        Toast.makeText(this, "$gameName", Toast.LENGTH_SHORT ).show()
-
-
-
-    }
 
     fun openDashboard(){
         // Define an array to store a list of users
@@ -148,8 +136,8 @@ class MainActivity : AppCompatActivity() {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
 
-                val GamesAPI = retrofit.create(GameService::class.java)
-                GamesAPI.gameSearch("$API_KEY", searchTerm,"20,100", true, true).enqueue(object : Callback<GameData> {
+                val gamesAPI = retrofit.create(GameService::class.java)
+                gamesAPI.gameSearch("$API_KEY", searchTerm,"20,100", true, true, true).enqueue(object : Callback<GameData> {
 
                     override fun onFailure(call: Call<GameData>, t: Throwable) {
                         Log.d(TAG, "onFailure : $t")

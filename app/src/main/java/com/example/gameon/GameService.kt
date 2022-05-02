@@ -24,6 +24,7 @@ interface GameService {
         @Query("key") APIkey: String,
         @Query("search") searchTerm: String,
         @Query("metacritic") searchRange: String,
-        @Query("search_exact") searchPrecise: Boolean,
+        @Query("search_exact") searchExact: Boolean,
+        @Query("search_precise") searchPrecise: Boolean,
         @Query("exclude_additions") excludeAdditions: Boolean): Call<GameData>
 }

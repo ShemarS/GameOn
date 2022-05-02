@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.row_item.view.*
 
 
-class GamesAdapter(private val results: ArrayList<Results>) : RecyclerView.Adapter<GamesAdapter.MyViewHolder>() {
+class ProfileAdapter(private val results: ArrayList<Results>) : RecyclerView.Adapter<ProfileAdapter.MyViewHolder>() {
 
     private val TAG = "MAN WHAT"
 
@@ -30,40 +30,18 @@ class GamesAdapter(private val results: ArrayList<Results>) : RecyclerView.Adapt
         val metacritic = itemView.findViewById<TextView>(R.id.textViewMetaCritic)
         val profileImage = itemView.findViewById<ImageView>(R.id.imageView)
 
-
-
-        init {
-            itemView.setOnClickListener {
-                val selectedItem = adapterPosition
-                val title = itemView.textViewName.text.toString()
-
-                val myIntent = Intent(itemView.context, GameProfile::class.java)
-                myIntent.putExtra("title", title)
-
-                //Log.d(TAG, "title: $title")
-                //Log.d(TAG, "value to be passed: $what")
-
-                itemView.context.startActivity(myIntent)
-
-
-                //itemView.context.startActivity(Intent(itemView.context, GameProfile::class.java))
-
-               // viewModel.setInfo(title, metacritic)
-                Toast.makeText(itemView.context, "You clicked on $selectedItem heres the name? : ${itemView.textViewName.text}",
-                    Toast.LENGTH_SHORT).show()
-
-            }
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         // Inflate a layout from our XML (row_item.XML) and return the holder
         // create a new view
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.game_profile_item, parent, false)
         return MyViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+
+
 
         // - get element from your dataset at this position
         // - replace the contents of the view with that element

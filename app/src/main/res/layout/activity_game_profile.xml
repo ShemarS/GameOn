@@ -7,115 +7,17 @@
     android:background="#151515">
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView5"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="112dp"
-        android:layout_marginBottom="112dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
-        app:cardMaxElevation="12dp"
-        app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <!--
-        In the above cardview widget
-        cardelevation property will give elevation to your card view
-        card corner radius will provide radius to your card view
-        card background color will give background color to your card view
-        card max elevation will give the cardview maximum elevation
-        card prevent corner overlap will add padding to CardView on v20 and before to prevent intersections between the Card content and rounded corners.
-        card use compact padding will add padding in API v21+ as well to have the same measurements with previous versions.
-        below are the two widgets imageview and text view we are displaying inside our card view.
-        -->
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textViewName"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginStart="75dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="13dp"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/textViewReleaseDate"
-                app:layout_constraintEnd_toStartOf="@+id/textViewMetaCritic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView"
-                app:layout_constraintVertical_bias="1.0"
-                tools:text="Silent Hill 2" />
-
-            <TextView
-                android:id="@+id/textViewReleaseDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginStart="33dp"
-                android:layout_marginBottom="48dp"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/chipFavorite"
-                app:layout_constraintStart_toStartOf="@+id/textViewName"
-                app:layout_constraintTop_toBottomOf="@+id/textViewMetaCritic"
-                tools:text="Released: 10/26/2020" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="377dp"
-                android:layout_height="232dp"
-                android:layout_marginBottom="14dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toTopOf="@+id/textViewMetaCritic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipFavorite"
-                android:layout_width="120dp"
-                android:layout_height="41dp"
-                android:layout_marginBottom="41dp"
-                android:checkable="true"
-                android:onClick="isChecked"
-                android:text="Favorite"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewReleaseDate" />
-
-            <TextView
-                android:id="@+id/textViewMetaCritic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="50dp"
-                android:textColor="#22830B"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/textViewReleaseDate"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewName"
-                app:layout_constraintTop_toBottomOf="@+id/imageView"
-                tools:text="95" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </androidx.cardview.widget.CardView>
-
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/game_profile_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>
