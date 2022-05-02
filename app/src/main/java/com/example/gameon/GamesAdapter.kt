@@ -1,6 +1,7 @@
 package com.example.gameon
 
 import android.content.Intent
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -71,6 +72,19 @@ class GamesAdapter(private val results: ArrayList<Results>) : RecyclerView.Adapt
         holder.name.text = currentItem.name
         holder.releaseDate.text = "Released on: ${currentItem.released}"
         holder.metacritic.text = currentItem.metacritic.toString()
+        val metaValue = holder.metacritic.text.toString().toInt()
+        if(metaValue in 90..100) {
+            holder.metacritic.setTextColor((Color.parseColor("#22830B")))
+        }
+        else if(metaValue in 80..89) {
+            holder.metacritic.setTextColor((Color.parseColor("#FF8BC34A")))
+        }
+        else if(metaValue in 70..79) {
+            holder.metacritic.setTextColor((Color.parseColor("#FFFFC107")))
+        }
+        else {
+            holder.metacritic.setTextColor((Color.parseColor("#FFCA0A10")))
+        }
 
         // Get the context for glide
         val context = holder.itemView.context
