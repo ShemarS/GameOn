@@ -41,21 +41,20 @@
 
             <TextView
                 android:id="@+id/textViewName"
-                android:layout_width="273dp"
-                android:layout_height="72dp"
+                android:layout_width="311dp"
+                android:layout_height="71dp"
                 android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginStart="63dp"
-                android:layout_marginTop="26dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="26dp"
+                android:layout_marginStart="47dp"
+                android:layout_marginEnd="47dp"
+                android:layout_marginBottom="25dp"
                 android:text="Test"
                 android:textAlignment="center"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/textViewReleaseDate"
-                app:layout_constraintEnd_toStartOf="@+id/textViewMetaCritic"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textViewMetaCritic"
+                app:layout_constraintTop_toBottomOf="@+id/textViewMetaCritic"
                 tools:text="Silent Hill 2" />
 
             <TextView
@@ -63,20 +62,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="51dp"
+                android:layout_marginBottom="52dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/chipPlaying"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewMetaCritic"
+                app:layout_constraintTop_toBottomOf="@+id/textViewName"
                 tools:text="Released: 10/26/2020" />
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="16dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toTopOf="@+id/textViewMetaCritic"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -86,8 +85,8 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipPlaying"
-                android:layout_width="197dp"
-                android:layout_height="37dp"
+                android:layout_width="223dp"
+                android:layout_height="46dp"
                 android:layout_marginBottom="67dp"
                 android:checkable="true"
                 android:onClick="saveFavorite"
@@ -100,16 +99,16 @@
 
             <TextView
                 android:id="@+id/textViewMetaCritic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="103dp"
+                android:layout_width="109dp"
+                android:layout_height="56dp"
+                android:layout_marginBottom="13dp"
+                android:textAlignment="center"
                 android:textColor="#186C04"
-                android:textSize="24sp"
+                android:textSize="34sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/textViewReleaseDate"
+                app:layout_constraintBottom_toTopOf="@+id/textViewName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewName"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView"
                 tools:text="95" />
         </androidx.constraintlayout.widget.ConstraintLayout>

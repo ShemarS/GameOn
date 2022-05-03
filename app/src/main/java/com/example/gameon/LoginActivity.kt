@@ -53,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
                     goDashboard()
                 }
                 else {
-                    Toast.makeText(this, "Login failed: ${task.exception}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Login failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
 
                 }
             }
