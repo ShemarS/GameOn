@@ -113,8 +113,8 @@ class MainActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().signOut()
                 finish()
             }
-            R.id.MyFavorites -> {
-                TODO("Add favorites page!")
+            R.id.Playing -> {
+                TODO("Add Playing page!")
             }
         }
         return super.onOptionsItemSelected(item)

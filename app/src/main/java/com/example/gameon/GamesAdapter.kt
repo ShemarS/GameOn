@@ -50,8 +50,8 @@ class GamesAdapter(private val results: ArrayList<Results>) : RecyclerView.Adapt
                 //itemView.context.startActivity(Intent(itemView.context, GameProfile::class.java))
 
                // viewModel.setInfo(title, metacritic)
-                Toast.makeText(itemView.context, "You clicked on $selectedItem heres the name? : ${itemView.textViewName.text}",
-                    Toast.LENGTH_SHORT).show()
+/*                Toast.makeText(itemView.context, "You clicked on $selectedItem heres the name? : ${itemView.textViewName.text}",
+                    Toast.LENGTH_SHORT).show()*/
 
             }
         }

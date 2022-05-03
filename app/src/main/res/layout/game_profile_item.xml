@@ -66,7 +66,7 @@
                 android:layout_marginBottom="51dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/chipFavorite"
+                app:layout_constraintBottom_toTopOf="@+id/chipPlaying"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewMetaCritic"
@@ -85,13 +85,13 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chipFavorite"
+                android:id="@+id/chipPlaying"
                 android:layout_width="197dp"
                 android:layout_height="37dp"
                 android:layout_marginBottom="67dp"
                 android:checkable="true"
                 android:onClick="saveFavorite"
-                android:text="Favorite"
+                android:text="Playing"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

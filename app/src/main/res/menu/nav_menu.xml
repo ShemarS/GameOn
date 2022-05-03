@@ -7,8 +7,8 @@
         android:title="Search"
         app:showAsAction="never" />
 
-    <item android:id="@+id/MyFavorites"
-        android:title="My Favorites"
+    <item android:id="@+id/Playing"
+        android:title="Currently Playing"
         app:showAsAction="never" />
 
     <item android:id="@+id/SignOut"
