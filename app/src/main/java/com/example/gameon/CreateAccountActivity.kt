@@ -63,7 +63,7 @@ class CreateAccountActivity : AppCompatActivity() {
                     finish()
                 }
                 else {
-                    Toast.makeText(this, "Sign up failed failed, try again!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Sign up failed: ${task.exception}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
