@@ -16,7 +16,10 @@ interface GameService {
     @GET("games")
     fun gameLoad(
         //@Query("search") searchTerm: String,
-        @Query("key") APIkey: String) : Call<GameData>
+        @Query("key") APIkey: String,
+        @Query("page") page: Int,
+        @Query("page_size") pageSize: Int,
+        ) : Call<GameData>
 
 
     @GET("games")
