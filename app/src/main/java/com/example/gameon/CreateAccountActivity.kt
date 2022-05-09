@@ -16,13 +16,17 @@ import kotlinx.android.synthetic.main.activity_login.editTextPassword
 class CreateAccountActivity : AppCompatActivity() {
 
     private val TAG = "MAN WHAT"
-    private val bannedWords = listOf("ADD", "ADD CONSTRAINT", "ALL", "ALTER ", "ALTER COLUMN", "ALTER TABLE", "AND", "ANY", "AS", "ASC", "BACKUP DATABASE", "BETWEEN",
+
+    //This part of the code was used for our CS492 Computer Security class to mitigate SQL/Code injection attacks and sanitize user input before processing
+    //I am leaving it here just in case our CS492 professor wants to access the most recent changes to the overall application on Github
+
+/*    private val bannedWords = listOf("ADD", "ADD CONSTRAINT", "ALL", "ALTER ", "ALTER COLUMN", "ALTER TABLE", "AND", "ANY", "AS", "ASC", "BACKUP DATABASE", "BETWEEN",
         "CASE", "CHECK", "COLUMN", "CONSTRAINT", "CREATE", "CREATE DATABASE", "CREATE INDEX", "CREATE OR REPLACE VIEW", "CREATE TABLE", "CREATE PROCEDURE", "CREATE UNIQUE INDEX",
         "CREATE VIEW", "DATABASE", "DEFAULT", "DELETE", "DELETE", "DESC", "DISTINCT", "DROP", "DROP COLUMN", "DROP CONSTRAINT", "DROP DATABASE", "DROP DEFAULT", "DROP INDEX",
         "DROP TABLE", "DROP VIEW", "EXEC", "FOREIGN KEY", "FROM", "FULL OUTER JOIN", "GROUP BY", "HAVING", "IN", "INDEX", "INNER JOIN", "INSERT INTO", "INSERT INTO SELECT",
         "IS NULL", "IS NOT NULL", "JOIN", "LEFT JOIN", "LIKE", "LIMIT", "NOT", "NOT NULL", "OR", "ORDER BY", "OUTER JOIN", "PRIMARY KEY", "PROCEDURE", "RIGHT JOIN",
         "ROWNUM", "SELECT", "SELECT DISTINCT", "SELECT INTO", "SELECT TOP", "SET", "TABLE", "TOP", "TRUNCATE TABLE", "UNION", "UNION ALL", "UNIQUE", "UPDATE", "VALUES",
-        "VIEW", "WHERE", "VAR", "VAL", "TEXTVIEW", "*", "<", ">", "/", "|", "(", ")")
+        "VIEW", "WHERE", "VAR", "VAL", "TEXTVIEW", "*", "<", ">", "/", "|", "(", ")")*/
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +50,10 @@ class CreateAccountActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val email = editTextEmail.text.toString().uppercase()
+            //This part of the code was used for our CS492 Computer Security class to mitigate SQL/Code injection attacks and sanitize user input before processing
+            //I am leaving it here just in case our CS492 professor wants to access the most recent changes to the overall application on Github
+
+/*            val email = editTextEmail.text.toString().uppercase()
             val password = editTextPassword.text.toString().uppercase()
             for (word in bannedWords) {
                 if(email.contains(word) || password.contains(word)){
@@ -54,7 +61,7 @@ class CreateAccountActivity : AppCompatActivity() {
                     buttonLogin.isEnabled = true
                     return@setOnClickListener
                 }
-            }
+            }*/
 
             auth.createUserWithEmailAndPassword(editTextEmail.text.toString(), editTextPassword.text.toString()).addOnCompleteListener{ task ->
                 buttonLogin.isEnabled = true

@@ -12,19 +12,10 @@ import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : AppCompatActivity() {
 
-    private val FILE_NAME = "TaskList"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
     }
-
-
-    override fun onResume() {
-        super.onResume()
-        loadData()
-    }
-
 
 
     fun onSearchClicked(view: View) {
@@ -36,7 +27,6 @@ class SearchActivity : AppCompatActivity() {
         }
         val myIntent = Intent()
         myIntent.putExtra("Search", searchTerm)
-        saveData()
         setResult(Activity.RESULT_OK, myIntent)
         finish()
     }
@@ -58,17 +48,6 @@ class SearchActivity : AppCompatActivity() {
     }
 
 
-    private fun saveData() {
-        val sharedPreferences = getPreferences(MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putString("name", editTextSearch.text.toString())
-        editor.apply()
-    }
 
-    private fun loadData() {
-        val sharedPreferences = getPreferences(MODE_PRIVATE)
-        val savedName = sharedPreferences.getString("name", "")
-        editTextSearch.setText(savedName)
-    }
 
 }

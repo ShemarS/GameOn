@@ -27,7 +27,6 @@ open class MainActivity : AppCompatActivity() {
     private val TAG = "MAN WHAT"
     private val API_KEY = "5010f16954ea41dbbbd5dcbcf63fe830"
     private val REQUEST_CODE = 123
-    val auth = FirebaseAuth.getInstance()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,20 +102,14 @@ open class MainActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<GameData>, response: Response<GameData>) {
                 Log.d(TAG, "onResponse: $response")
-
                 val body = response.body()
-
                 if (body == null){
                     Log.w(TAG, "Valid response was not received")
                     return
                 }
-
-
                 gameList.addAll(body.results)
                 adapter.notifyDataSetChanged()
             }
-
         })
-
     }
 }

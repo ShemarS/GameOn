@@ -18,7 +18,6 @@ import kotlinx.android.synthetic.main.row_item.view.*
 class GamesAdapter(private val results: ArrayList<Results>) : RecyclerView.Adapter<GamesAdapter.MyViewHolder>() {
 
     private val TAG = "MAN WHAT"
-    private var backgroundImg = ""
 
     inner class MyViewHolder (itemView: View): RecyclerView.ViewHolder (itemView){
         val name = itemView.findViewById<TextView>(R.id.textViewName)
