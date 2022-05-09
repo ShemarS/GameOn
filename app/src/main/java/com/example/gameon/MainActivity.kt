@@ -21,7 +21,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MainActivity : AppCompatActivity() {
+open class MainActivity : AppCompatActivity() {
 
     private val BASE_URL = "https://api.rawg.io/api/"
     private val TAG = "MAN WHAT"
@@ -56,9 +56,6 @@ class MainActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().signOut()
                 finish()
             }
-            R.id.Playing -> {
-                TODO("Add Playing page!")
-            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -85,18 +82,20 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         val gamesAPI = retrofit.create(GameService::class.java)
-        val x: Call<GameData>
 
+        val callToMake: Call<GameData>
         if (callType == "Search" && searchTerm != null) {
 
-           x = gamesAPI.gameSearch("$API_KEY", searchTerm,"20,100", true, true, true)
+           callToMake = gamesAPI.gameSearch("$API_KEY", searchTerm,"20,100",
+               searchExact = true,
+               searchPrecise = true,
+               excludeAdditions = true
+           )
         } else {
-            x = gamesAPI.gameLoad("$API_KEY", 1, 20)
+            callToMake = gamesAPI.gameLoad("$API_KEY", 1, 20)
         }
 
-
-
-            x.enqueue(object : Callback<GameData> {
+            callToMake.enqueue(object : Callback<GameData> {
 
             override fun onFailure(call: Call<GameData>, t: Throwable) {
                 Log.d(TAG, "onFailure : $t")

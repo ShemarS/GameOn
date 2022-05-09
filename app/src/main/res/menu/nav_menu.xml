@@ -7,10 +7,6 @@
         android:title="Search"
         app:showAsAction="never" />
 
-    <item android:id="@+id/Playing"
-        android:title="Currently Playing"
-        app:showAsAction="never" />
-
     <item android:id="@+id/SignOut"
         android:title="Sign Out"
         app:showAsAction="never" />

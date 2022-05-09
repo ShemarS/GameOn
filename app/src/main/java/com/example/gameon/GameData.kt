@@ -8,12 +8,11 @@ data class GameData(
 )
 
 data class Results(
+    val id: Int,
     val name: String,
     val released: String,
     val background_image: String,
     val metacritic: Int
-
-
 )
 
 

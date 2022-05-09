@@ -17,9 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GameOn">
         <activity
-            android:name=".GameProfile"
-            android:exported="false" />
-        <activity
             android:name=".CreateAccountActivity"
             android:exported="true">
             <intent-filter>
